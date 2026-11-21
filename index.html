@@ -144,12 +144,6 @@ main{position:relative;z-index:2}
 .hero-role{font-size:clamp(1rem,2.5vw,1.4rem);font-weight:300;color:var(--tx-body);margin-bottom:3rem;letter-spacing:.02em}
 .hero-role strong{color:var(--p400);font-weight:600}
 
-.hero-stats{display:flex;gap:3rem;margin-bottom:3rem}
-.stat-item{display:flex;flex-direction:column}
-.stat-num{font-size:2.2rem;font-weight:800;line-height:1;
-  background:linear-gradient(135deg,var(--p400),var(--c400));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-label{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--tx-muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
-
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.8rem;font-size:.88rem;font-weight:600;
   background:linear-gradient(135deg,var(--p700),var(--p600));color:#f5f3ff;border:1px solid var(--p500);
@@ -238,16 +232,22 @@ main{position:relative;z-index:2}
 .sk-docker .sk-icon{background:rgba(56,189,248,.12);color:#38bdf8}
 .sk-github .sk-icon{background:rgba(163,155,191,.12);color:var(--tx-muted)}
 .sk-jenkins .sk-icon{background:rgba(239,68,68,.1);color:#f87171}
+.sk-ansible .sk-icon{background:rgba(244,114,182,.1);color:#f472b6}
 .sk-k8s .sk-icon{background:rgba(139,92,246,.14);color:var(--p400)}
 .sk-aws .sk-icon{background:rgba(251,146,60,.1);color:#f97316}
 .sk-tf .sk-icon{background:rgba(99,102,241,.14);color:#818cf8}
 .sk-wsl .sk-icon{background:rgba(34,211,238,.1);color:var(--c300)}
+.sk-nginx .sk-icon{background:rgba(74,222,128,.1);color:#4ade80}
+.sk-pg .sk-icon{background:rgba(96,165,250,.12);color:#60a5fa}
+.sk-mysql .sk-icon{background:rgba(250,204,21,.1);color:#facc15}
 
 .sk-linux .sk-fill{background:var(--c400)}.sk-bash .sk-fill{background:var(--b300)}
 .sk-docker .sk-fill{background:#38bdf8}.sk-github .sk-fill{background:var(--tx-muted)}
-.sk-jenkins .sk-fill{background:#f87171}.sk-k8s .sk-fill{background:var(--p400)}
+.sk-jenkins .sk-fill{background:#f87171}.sk-ansible .sk-fill{background:#f472b6}
+.sk-k8s .sk-fill{background:var(--p400)}
 .sk-aws .sk-fill{background:#f97316}.sk-tf .sk-fill{background:#818cf8}
-.sk-wsl .sk-fill{background:var(--c300)}
+.sk-wsl .sk-fill{background:var(--c300)}.sk-nginx .sk-fill{background:#4ade80}
+.sk-pg .sk-fill{background:#60a5fa}.sk-mysql .sk-fill{background:#facc15}
 
 .resume-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
 .resume-col-title{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--p400);letter-spacing:.18em;
@@ -264,6 +264,8 @@ main{position:relative;z-index:2}
 
 .re-period{font-family:'DM Mono',monospace;font-size:.64rem;color:var(--p400);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem}
 .re-title{font-size:1rem;font-weight:700;color:var(--tx-high);margin-bottom:.15rem}
+.re-title a{color:inherit;text-decoration:none}
+.re-title a:hover{color:var(--p300)}
 .re-org{font-size:.8rem;color:var(--p400);font-weight:500;margin-bottom:.6rem}
 .re-desc{font-size:.9rem;color:var(--tx-body);line-height:1.75}
 .re-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
@@ -306,14 +308,12 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
 @media(max-width:900px){
   #hero,.section{padding-left:2rem;padding-right:2rem}
   .about-grid,.resume-grid{grid-template-columns:1fr}
-  .hero-stats{gap:2rem}
   nav{padding:0 1.5rem}
   footer{flex-direction:column;gap:.75rem;padding:2rem;text-align:center}
 }
 @media(max-width:600px){
   .nav-links{display:none}
   .hero-name{font-size:3rem}
-  .hero-stats{flex-wrap:wrap;gap:1.5rem}
 }
 </style>
 </head>
@@ -349,13 +349,6 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
     <div class="hero-eyebrow fu">DevOps Engineer &nbsp;·&nbsp; Karachi, PK</div>
     <h1 class="hero-name fu d1">Zaheer<br/>Ahmed</h1>
     <p class="hero-role fu d2">DevOps &nbsp;·&nbsp; <strong>CI/CD &amp; Automation</strong> &nbsp;·&nbsp; Containers &nbsp;·&nbsp; Cloud Infrastructure</p>
-
-    <!-- <div class="hero-stats fu d3">
-      <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">DevOps Projects</span></div>
-      <div class="stat-item"><span class="stat-num">8+</span><span class="stat-label">Core Tools</span></div>
-      <div class="stat-item"><span class="stat-num">BS CS</span><span class="stat-label">SMI University</span></div>
-    </div> -->
-
     <div class="hero-ctas fu d4">
       <a href="#contact" class="btn-primary">Let's Connect ↗</a>
       <a href="#skills" class="btn-ghost">View Skills ↓</a>
@@ -377,9 +370,9 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
       </div>
       <div class="fu d3">
         <div class="about-text">
-          <p>I'm a <strong>DevOps Engineer in the making</strong> — focused on building the infrastructure that keeps software shipping fast and reliably. I made a deliberate shift toward DevOps because the real leverage isn't just writing code, it's <strong>shipping it flawlessly and repeatedly, at scale.</strong></p>
-          <p>I work hands-on with <strong>Linux, Docker, Jenkins, Kubernetes, and AWS EC2</strong> — every tool gets tested in a real environment, from WSL2 and local VMs to live EC2 instances. Currently learning <strong>Terraform</strong> to bring infrastructure-as-code into my workflow.</p>
-          <p>Building real projects — CI/CD pipelines, containerized deployments, and Kubernetes practice on EC2 — to back up the skills. Open to internships, junior roles, and collaborations where I can contribute and grow at the same time.</p>
+          <p>I'm a <strong>DevOps engineer in the making</strong>. I like getting software from a commit to a running server in a way that can be repeated, and I build projects to practice exactly that.</p>
+          <p>I work hands-on with <strong>Linux, Docker, Jenkins, Ansible, Kubernetes, Terraform and AWS EC2</strong>. Everything I build runs on real machines: native Ubuntu, WSL2, GitHub Codespaces and live EC2 instances. I also run <strong>Nginx</strong> and <strong>PostgreSQL</strong> in these setups and automate database backups with Bash.</p>
+          <p>Right now I'm Junior DevOps Engineer at <strong>TeamX</strong>, learning how a real team ships releases, and picking up Node.js backend development alongside DevOps.</p>
         </div>
         <div class="info-list">
           <div class="info-row">
@@ -389,6 +382,10 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
           <div class="info-row">
             <span class="info-key">Focus</span>
             <span class="info-val">DevOps &amp; Cloud Infrastructure</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Currently</span>
+            <span class="info-val">Jr DevOps Engr at TeamX</span>
           </div>
           <div class="info-row">
             <span class="info-key">Email</span>
@@ -414,6 +411,7 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
     <h2 class="sec-title fu d1">My <em>Arsenal</em></h2>
     <p class="sec-subtitle fu d2">Tools and technologies I use to automate, deploy, and manage infrastructure.</p>
     <div class="skills-layout">
+
       <div class="fu d1">
         <div class="skills-category-title">Core DevOps &amp; Automation</div>
         <div class="skills-row-wrap">
@@ -421,43 +419,50 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
             <div class="sk sk-linux">
               <div class="sk-top"><div class="sk-icon">🐧</div><div><div class="sk-name">Linux</div><div class="sk-desc">Ubuntu · WSL2 · shell environments</div></div></div>
               <div class="sk-meta"><span class="sk-level">Proficient</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:78%"></div></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div>
             </div>
             <div class="sk sk-bash">
-              <div class="sk-top"><div class="sk-icon">⌨️</div><div><div class="sk-name">Bash / Shell Scripting</div><div class="sk-desc">Automation · Provisioning scripts</div></div></div>
-              <div class="sk-meta"><span class="sk-level">Proficient</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:70%"></div></div>
-            </div>
-            <div class="sk sk-github">
-              <div class="sk-top"><div class="sk-icon">🔗</div><div><div class="sk-name">Git &amp; GitHub</div><div class="sk-desc">Version control · Collaboration</div></div></div>
-              <div class="sk-meta"><span class="sk-level">Proficient</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div>
-            </div>
-            <div class="sk sk-docker">
-              <div class="sk-top"><div class="sk-icon">🐳</div><div><div class="sk-name">Docker &amp; Compose</div><div class="sk-desc">Containers · Multi-service stacks</div></div></div>
+              <div class="sk-top"><div class="sk-icon">⌨️</div><div><div class="sk-name">Bash / Shell Scripting</div><div class="sk-desc">Automation · Backups · Cron</div></div></div>
               <div class="sk-meta"><span class="sk-level">Proficient</span></div>
               <div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div>
+            </div>
+            <div class="sk sk-github">
+              <div class="sk-top"><div class="sk-icon">🔗</div><div><div class="sk-name">Git &amp; GitHub</div><div class="sk-desc">Branching · Webhooks · Collaboration</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Proficient</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:78%"></div></div>
+            </div>
+            <div class="sk sk-docker">
+              <div class="sk-top"><div class="sk-icon">🐳</div><div><div class="sk-name">Docker &amp; Compose</div><div class="sk-desc">Multi-stage builds · Networks · Volumes</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Proficient</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:78%"></div></div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="fu d2">
         <div class="skills-category-title">CI/CD &amp; Orchestration</div>
         <div class="skills-row-wrap">
           <div class="skills-row">
             <div class="sk sk-jenkins">
-              <div class="sk-top"><div class="sk-icon">🔄</div><div><div class="sk-name">Jenkins</div><div class="sk-desc">Multibranch pipelines · Env promotion</div></div></div>
+              <div class="sk-top"><div class="sk-icon">🔄</div><div><div class="sk-name">Jenkins</div><div class="sk-desc">Multibranch · Chained pipelines · Jenkinsfile</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Proficient</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:72%"></div></div>
+            </div>
+            <div class="sk sk-ansible">
+              <div class="sk-top"><div class="sk-icon">📜</div><div><div class="sk-name">Ansible</div><div class="sk-desc">Playbook-based deployment pipelines</div></div></div>
               <div class="sk-meta"><span class="sk-level">Developing</span></div>
               <div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div>
             </div>
             <div class="sk sk-k8s">
               <div class="sk-top"><div class="sk-icon">☸️</div><div><div class="sk-name">Kubernetes</div><div class="sk-desc">StatefulSets · Ingress · Kind clusters</div></div></div>
               <div class="sk-meta"><span class="sk-level">Developing</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:58%"></div></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:62%"></div></div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="fu d3">
         <div class="skills-category-title">Cloud &amp; Infrastructure as Code</div>
         <div class="skills-row-wrap">
@@ -465,12 +470,12 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
             <div class="sk sk-aws">
               <div class="sk-top"><div class="sk-icon">☁️</div><div><div class="sk-name">AWS EC2</div><div class="sk-desc">Provisioning · Instance management</div></div></div>
               <div class="sk-meta"><span class="sk-level">Developing</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:55%"></div></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:62%"></div></div>
             </div>
             <div class="sk sk-tf">
-              <div class="sk-top"><div class="sk-icon">🏗</div><div><div class="sk-name">Terraform</div><div class="sk-desc">Infrastructure as code</div></div></div>
-              <div class="sk-meta"><span class="sk-level">Learning</span></div>
-              <div class="sk-bar"><div class="sk-fill" style="width:35%"></div></div>
+              <div class="sk-top"><div class="sk-icon">🏗</div><div><div class="sk-name">Terraform</div><div class="sk-desc">EC2 provisioning · Security groups · Key pairs</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Developing</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:55%"></div></div>
             </div>
             <div class="sk sk-wsl">
               <div class="sk-top"><div class="sk-icon">🪟</div><div><div class="sk-name">WSL2</div><div class="sk-desc">Linux dev environment on Windows</div></div></div>
@@ -480,6 +485,30 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
           </div>
         </div>
       </div>
+
+      <div class="fu d3">
+        <div class="skills-category-title">Web Servers &amp; Databases</div>
+        <div class="skills-row-wrap">
+          <div class="skills-row">
+            <div class="sk sk-nginx">
+              <div class="sk-top"><div class="sk-icon">🌐</div><div><div class="sk-name">Nginx</div><div class="sk-desc">Web servers · Reverse proxy · Domains</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Developing</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div>
+            </div>
+            <div class="sk sk-pg">
+              <div class="sk-top"><div class="sk-icon">🐘</div><div><div class="sk-name">PostgreSQL</div><div class="sk-desc">Administration · pg_dump backups · Alembic</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Developing</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div>
+            </div>
+            <div class="sk sk-mysql">
+              <div class="sk-top"><div class="sk-icon">🗄️</div><div><div class="sk-name">MySQL</div><div class="sk-desc">Queries · StatefulSet deployments</div></div></div>
+              <div class="sk-meta"><span class="sk-level">Developing</span></div>
+              <div class="sk-bar"><div class="sk-fill" style="width:50%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -488,10 +517,20 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
   <div class="section-inner">
     <div class="sec-eyebrow fu">03 — Experience &amp; Journey</div>
     <h2 class="sec-title fu d1">The <em>Roadmap</em></h2>
-    <p class="sec-subtitle fu d2">Real projects, not just tutorials — here's what I've actually built and where I'm heading next.</p>
+    <p class="sec-subtitle fu d2">Real projects, not just tutorials. Here is what I've built and where I'm heading next.</p>
     <div class="resume-grid">
+
       <div class="fu d1">
-        <div class="resume-col-title">Education</div>
+        <div class="resume-col-title">Experience &amp; Education</div>
+        <div class="resume-entry active">
+          <div class="re-period">2026 — Present</div>
+          <div class="re-title">Intern</div>
+          <div class="re-org">TeamX</div>
+          <div class="re-desc">Working on a Node.js stack and learning how a real team deploys and manages releases.</div>
+          <div class="re-tags">
+            <span class="re-tag">Node.js</span><span class="re-tag">Deployments</span>
+          </div>
+        </div>
         <div class="resume-entry">
           <div class="re-period">2022 — Present</div>
           <div class="re-title">BS Computer Science</div>
@@ -506,42 +545,77 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
           <div class="re-period">On the Horizon →</div>
           <div class="re-title">DevOps Engineering Role</div>
           <div class="re-org">Career Goal</div>
-          <div class="re-desc">Working toward an internship or junior DevOps role — deepening CI/CD, Kubernetes, and infrastructure-as-code skills while contributing to real deployments.</div>
+          <div class="re-desc">Working toward a junior DevOps role, going deeper on CI/CD, Kubernetes and infrastructure as code while contributing to real deployments.</div>
           <div class="re-tags">
             <span class="re-tag">CI/CD</span><span class="re-tag">Kubernetes</span><span class="re-tag">Terraform</span>
           </div>
         </div>
       </div>
+
       <div class="fu d2">
         <div class="resume-col-title">Projects</div>
+
         <div class="resume-entry active">
           <div class="re-period">2025 — Present</div>
           <div class="re-title">Notes App Automation Platform</div>
           <div class="re-org">Unified DevOps Project</div>
-          <div class="re-desc">A Flask/SQLAlchemy notes app wired into a full pipeline — Terraform provisions the EC2 host, Jenkins orchestrates build → deploy, and Kubernetes (Kind) runs the app. Working toward a zero-downtime, expand-contract migration pattern.</div>
+          <div class="re-desc">A Flask/PostgreSQL notes app with a full pipeline. Terraform provisions the EC2 host, Jenkins builds, migrates, deploys to a Kind cluster, health-checks and rolls back on failure. Migrations follow an expand-contract pattern for zero downtime.</div>
           <div class="re-tags">
             <span class="re-tag">Terraform</span><span class="re-tag">Jenkins</span><span class="re-tag">Docker</span><span class="re-tag">Kubernetes</span>
           </div>
         </div>
+
         <div class="resume-entry">
           <div class="re-period">2025</div>
-          <div class="re-title">Kubernetes Hands-On Practice</div>
+          <div class="re-title">Multi-System Ansible Deployment</div>
+          <div class="re-org">Ansible · Jenkins</div>
+          <div class="re-desc">Four systems (admin, frontend, backend, database) across three git branches, each with its own Jenkins pipeline running an Ansible playbook: stop, prune, pull, rebuild. Includes a backup cron job.</div>
+          <div class="re-tags">
+            <span class="re-tag">Ansible</span><span class="re-tag">Jenkins</span><span class="re-tag">Docker Compose</span>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="re-period">2025</div>
+          <div class="re-title"><a href="https://github.com/zaheer-ahmed001/pollbox" target="_blank">PollBox &amp; Chained Jenkins Pipeline</a></div>
+          <div class="re-org">Docker · Jenkins</div>
+          <div class="re-desc">A voting app (static frontend, Flask API, PostgreSQL) with custom networks, named volumes and a build, test and push Jenkinsfile. A separate three-tier project chains database, backend and frontend pipelines and pushes images to Docker Hub.</div>
+          <div class="re-tags">
+            <span class="re-tag">Jenkins</span><span class="re-tag">Docker Hub</span><span class="re-tag">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="re-period">2025</div>
+          <div class="re-title"><a href="https://github.com/zaheer-ahmed001/django-notes-app" target="_blank">Kubernetes Hands-On Practice</a></div>
           <div class="re-org">Self-Directed · EC2</div>
-          <div class="re-desc">Deployed and debugged a Django app on a Kubernetes cluster running on EC2 — troubleshooting StatefulSets, Ingress rules, and resource limits on a constrained instance.</div>
+          <div class="re-desc">Deployed a Django app to a four-node Kind cluster on EC2. Debugged MySQL StatefulSets, kube-proxy crash loops from inotify limits and memory pressure, and set up Ingress.</div>
           <div class="re-tags">
             <span class="re-tag">Kubernetes</span><span class="re-tag">AWS EC2</span><span class="re-tag">Ingress</span>
           </div>
         </div>
+
         <div class="resume-entry">
           <div class="re-period">2024</div>
           <div class="re-title">Jenkins Multibranch Pipeline</div>
           <div class="re-org">Self-Directed</div>
-          <div class="re-desc">Built a Jenkins Multibranch Pipeline deploying isolated Docker Compose stacks across dev, staging, and prod environments — an early portfolio piece from the start of the DevOps learning path.</div>
+          <div class="re-desc">Deployed isolated Nginx and PostgreSQL Docker Compose stacks to dev, staging and prod on EC2, with a separate port mapping per branch.</div>
           <div class="re-tags">
-            <span class="re-tag">Jenkins</span><span class="re-tag">Docker Compose</span>
+            <span class="re-tag">Jenkins</span><span class="re-tag">Docker Compose</span><span class="re-tag">Nginx</span>
+          </div>
+        </div>
+
+        <div class="resume-entry">
+          <div class="re-period">2026</div>
+          <div class="re-title">PostgreSQL Backup Automation</div>
+          <div class="re-org">Bash · VPS</div>
+          <div class="re-desc">Bash scripts running pg_dump against a remote PostgreSQL server, with safe credential handling and matching client and server versions.</div>
+          <div class="re-tags">
+            <span class="re-tag">Bash</span><span class="re-tag">PostgreSQL</span><span class="re-tag">pg_dump</span>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -550,7 +624,7 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
   <div class="section-inner">
     <div class="sec-eyebrow fu">04 — Contact</div>
     <h2 class="sec-title fu d1">Let's <em>Build</em> Together</h2>
-    <p class="sec-subtitle fu d2">Available for internships, junior DevOps roles, and technical collaborations. Let's talk infrastructure.</p>
+    <p class="sec-subtitle fu d2">Available for internships, junior DevOps roles, and technical collaborations.</p>
     <div class="fu d2">
       <div class="contact-info-blocks">
         <a href="https://www.linkedin.com/in/zaheer-ahmed-khan-123965382/" target="_blank" rel="noopener" class="ci-card ci-li">
@@ -574,10 +648,7 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
           <div class="avail-label">Response Time</div>
           <div class="avail-val">Within 24 hours</div>
         </div>
-        <div class="avail-item">
-          <div class="avail-label">Looking For</div>
-          <div class="avail-val">Internships &amp; Junior DevOps</div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -587,18 +658,19 @@ footer{position:relative;z-index:2;padding:2.5rem 6rem;border-top:1px solid var(
 
 <footer>
   <div class="footer-brand">Crafted by <strong>Zaheer Ahmed</strong> · DevOps Engineer · Karachi 🇵🇰</div>
-  <div class="footer-copy">© 2025 — All rights reserved</div>
+  <div class="footer-copy">© 2026 — All rights reserved</div>
 </footer>
 
 <script>
 const html=document.documentElement;
 const btn=document.getElementById('theme-btn');
-const saved=localStorage.getItem('za-theme')||'dark';
+let saved='dark';
+try{saved=localStorage.getItem('za-theme')||'dark'}catch(e){}
 html.setAttribute('data-theme',saved);
 btn.addEventListener('click',()=>{
   const next=html.getAttribute('data-theme')==='dark'?'light':'dark';
   html.setAttribute('data-theme',next);
-  localStorage.setItem('za-theme',next);
+  try{localStorage.setItem('za-theme',next)}catch(e){}
 });
 
 const obs=new IntersectionObserver(entries=>{
